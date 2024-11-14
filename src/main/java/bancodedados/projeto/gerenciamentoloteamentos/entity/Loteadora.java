@@ -1,0 +1,145 @@
+package bancodedados.projeto.gerenciamentoloteamentos.entity;
+
+import java.time.Instant;
+import java.util.List;
+import java.util.UUID;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "loteadora")
+public class Loteadora {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID loteadoraId;
+
+    private String nome;
+
+    private String email;
+
+    private String senha;
+
+    private String cnpj;
+    
+    private String endereco;
+
+    private String telefone;
+
+    private String foto;
+
+    @CreationTimestamp
+    private Instant creationTimeStamp;
+
+    @UpdateTimestamp
+    private Instant updateTimeStamp;
+
+    @OneToMany
+    private List<Loteamento> loteamentos;
+
+    public Loteadora() {
+    }
+
+    public Loteadora(UUID loteadoraId, String nome, String email, String senha, String cnpj, String endereco,
+            String telefone, String foto, Instant creationTimeStamp, Instant updateTimeStamp) {
+        this.loteadoraId = loteadoraId;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.cnpj = cnpj;
+        this.endereco = endereco;
+        this.telefone = telefone;
+        this.foto = foto;
+        this.creationTimeStamp = creationTimeStamp;
+        this.updateTimeStamp = updateTimeStamp;
+    }
+
+    public UUID getLoteadoraId() {
+        return loteadoraId;
+    }
+
+    public void setLoteadoraId(UUID loteadoraId) {
+        this.loteadoraId = loteadoraId;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public Instant getCreationTimeStamp() {
+        return creationTimeStamp;
+    }
+
+    public void setCreationTimeStamp(Instant creationTimeStamp) {
+        this.creationTimeStamp = creationTimeStamp;
+    }
+
+    public Instant getUpdateTimeStamp() {
+        return updateTimeStamp;
+    }
+
+    public void setUpdateTimeStamp(Instant updateTimeStamp) {
+        this.updateTimeStamp = updateTimeStamp;
+    }
+
+}
