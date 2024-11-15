@@ -42,8 +42,11 @@ public class Loteadora {
     @UpdateTimestamp
     private Instant updateTimeStamp;
 
-    @OneToMany
+    @OneToMany(mappedBy = "loteadora")
     private List<Loteamento> loteamentos;
+
+    @OneToMany(mappedBy = "loteadora")
+    private List<LoteadoraSocio> loteadoraSocios;
 
     public Loteadora() {
     }
@@ -140,6 +143,14 @@ public class Loteadora {
 
     public void setUpdateTimeStamp(Instant updateTimeStamp) {
         this.updateTimeStamp = updateTimeStamp;
+    }
+
+    public List<Loteamento> getLoteamentos() {
+        return loteamentos;
+    }
+
+    public void setLoteamentos(List<Loteamento> loteamentos) {
+        this.loteamentos = loteamentos;
     }
 
 }

@@ -6,6 +6,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -15,6 +18,13 @@ public class Loteamento {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID loteamentoId;
+
+    @ManyToOne
+    @JoinColumn(name = "loteadora_Id")
+    private Loteadora loteadora;
+
+    @OneToOne(mappedBy = "loteamento")
+    private Obra obra;
 
     private String nome;
 
@@ -97,4 +107,21 @@ public class Loteamento {
     public void setLotesDisppniveis(Integer lotesDisppniveis) {
         this.lotesDisppniveis = lotesDisppniveis;
     }
+
+    public Loteadora getLoteadora() {
+        return loteadora;
+    }
+
+    public void setLoteadora(Loteadora loteadora) {
+        this.loteadora = loteadora;
+    }
+
+    public Obra getObra() {
+        return obra;
+    }
+
+    public void setObra(Obra obra) {
+        this.obra = obra;
+    }
+    
 }
