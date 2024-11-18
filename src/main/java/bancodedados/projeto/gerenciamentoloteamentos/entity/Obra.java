@@ -1,13 +1,16 @@
 package bancodedados.projeto.gerenciamentoloteamentos.entity;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -16,19 +19,27 @@ import jakarta.persistence.Table;
 public class Obra {
     
     @Id
+    @Column (name = "obra_id")
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID obraId;
 
     @OneToOne
-    @JoinColumn(name = "loteamentoId")
+    @JoinColumn(name = "loteamento_id")
     private Loteamento loteamento;
 
+    @OneToMany(mappedBy = "obra")
+    private List<Visita> visitas;
+
+    @Column (name = "data_inicio")
     private Instant dataInicio;
 
+    @Column (name = "data_fim")
     private Instant dataFim;
 
+    @Column (name = "progresso")
     private float progresso;
 
+    @Column (name = "fotos")
     private String fotos;
 
     public Obra() {
@@ -88,6 +99,14 @@ public class Obra {
 
     public void setLoteamento(Loteamento loteamento) {
         this.loteamento = loteamento;
+    }
+
+    public List<Visita> getVisitas() {
+        return visitas;
+    }
+
+    public void setVisitas(List<Visita> visitas) {
+        this.visitas = visitas;
     }
 
 }

@@ -7,6 +7,7 @@ import java.util.UUID;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,21 +20,29 @@ import jakarta.persistence.Table;
 public class Loteadora {
     
     @Id
+    @Column (name = "loteadora_id")
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID loteadoraId;
-
+    
+    @Column (name = "nome")
     private String nome;
 
+    @Column (name = "email")
     private String email;
 
+    @Column (name = "senha")
     private String senha;
 
+    @Column (name = "cnpj")
     private String cnpj;
     
+    @Column (name = "endereco")
     private String endereco;
 
+    @Column (name = "telefone")
     private String telefone;
 
+    @Column (name = "foto")
     private String foto;
 
     @CreationTimestamp

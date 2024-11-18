@@ -13,18 +13,18 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table
-public class Socio {
+public class Engenheiro {
     
     @Id
-    @Column (name = "socio_id")
+    @Column (name = "engenheiro_id")
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID socioId;
+    private UUID engenheiroId;
+
+    @OneToMany(mappedBy = "engenheiro")
+    private List<Visita> visitas;
 
     @Column (name = "nome")
     private String nome;
-
-    @Column (name = "senha")
-    private String senha;
 
     @Column (name = "email")
     private String email;
@@ -32,30 +32,30 @@ public class Socio {
     @Column (name = "cpf")
     private String cpf;
 
+    @Column (name = "crea")
+    private String crea;
+
     @Column (name = "telefone")
     private String telefone;
 
-    @OneToMany(mappedBy = "socio")
-    private List<LoteadoraSocio> loteadoraSocios;
-
-    public Socio() {
+    public Engenheiro() {
     }
 
-    public Socio(UUID socioId, String nome, String senha, String email, String cpf, String telefone) {
-        this.socioId = socioId;
+    public Engenheiro(UUID engenheiroId, String nome, String email, String cpf, String crea, String telefone) {
+        this.engenheiroId = engenheiroId;
         this.nome = nome;
-        this.senha = senha;
         this.email = email;
         this.cpf = cpf;
+        this.crea = crea;
         this.telefone = telefone;
     }
 
-    public UUID getSocioId() {
-        return socioId;
+    public UUID getEngenheiroId() {
+        return engenheiroId;
     }
 
-    public void setSocioId(UUID socioId) {
-        this.socioId = socioId;
+    public void setEngenheiroId(UUID engenheiroId) {
+        this.engenheiroId = engenheiroId;
     }
 
     public String getNome() {
@@ -64,14 +64,6 @@ public class Socio {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public String getEmail() {
@@ -88,6 +80,14 @@ public class Socio {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public String getCrea() {
+        return crea;
+    }
+
+    public void setCrea(String crea) {
+        this.crea = crea;
     }
 
     public String getTelefone() {

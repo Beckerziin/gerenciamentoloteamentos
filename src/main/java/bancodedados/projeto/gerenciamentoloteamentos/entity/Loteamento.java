@@ -1,13 +1,16 @@
 package bancodedados.projeto.gerenciamentoloteamentos.entity;
 
+import java.util.List;
 import java.util.UUID;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -16,40 +19,57 @@ import jakarta.persistence.Table;
 public class Loteamento {
     
     @Id
+    @Column (name = "loteamento_id")
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID loteamentoId;
 
     @ManyToOne
-    @JoinColumn(name = "loteadora_Id")
+    @JoinColumn(name = "loteadora_id")
     private Loteadora loteadora;
 
     @OneToOne(mappedBy = "loteamento")
     private Obra obra;
 
+    @ManyToOne
+    @JoinColumn(name = "status_loteamento_id")
+    private StatusLoteamento statusLoteamento;
+
+    @OneToMany(mappedBy = "loteamento")
+    private List<Lote> lotes;
+
+    @OneToMany(mappedBy = "loteamento")
+    private List<Documentacao> documentacoes;
+
+    @Column (name = "nome")
     private String nome;
 
+    @Column (name = "localizacao")
     private String localizacao;
 
+    @Column (name = "area_total")
     private Float areatotal;
 
+    @Column (name = "fotos")
     private String fotos;
 
+    @Column (name = "quantidade_lotes")
     private Integer quantidadeLotes;
 
-    private Integer lotesDisppniveis;
+    @Column (name = "lotes_disponiveis")
+    private Integer lotesDisponiveis;
 
     public Loteamento() {
     }
 
     public Loteamento(UUID loteamentoId, String nome, String localizacao, Float areatotal, String fotos,
-            Integer quantidadeLotes, Integer lotesDisppniveis) {
+            Integer quantidadeLotes, Integer lotesDisponiveis) {
         this.loteamentoId = loteamentoId;
         this.nome = nome;
         this.localizacao = localizacao;
         this.areatotal = areatotal;
         this.fotos = fotos;
         this.quantidadeLotes = quantidadeLotes;
-        this.lotesDisppniveis = lotesDisppniveis;
+        this.lotesDisponiveis = lotesDisponiveis;
     }
 
     public UUID getLoteamentoId() {
@@ -100,12 +120,12 @@ public class Loteamento {
         this.quantidadeLotes = quantidadeLotes;
     }
 
-    public Integer getLotesDisppniveis() {
-        return lotesDisppniveis;
+    public Integer getLotesDisponiveis() {
+        return lotesDisponiveis;
     }
 
-    public void setLotesDisppniveis(Integer lotesDisppniveis) {
-        this.lotesDisppniveis = lotesDisppniveis;
+    public void setLotesDisponiveis(Integer lotesDisponiveis) {
+        this.lotesDisponiveis = lotesDisponiveis;
     }
 
     public Loteadora getLoteadora() {
@@ -122,6 +142,22 @@ public class Loteamento {
 
     public void setObra(Obra obra) {
         this.obra = obra;
+    }
+
+    public StatusLoteamento getStatusLoteamento() {
+        return statusLoteamento;
+    }
+
+    public void setStatusLoteamento(StatusLoteamento statusLoteamento) {
+        this.statusLoteamento = statusLoteamento;
+    }
+
+    public List<Lote> getLotes() {
+        return lotes;
+    }
+
+    public void setLotes(List<Lote> lotes) {
+        this.lotes = lotes;
     }
     
 }
