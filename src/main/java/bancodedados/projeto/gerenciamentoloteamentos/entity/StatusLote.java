@@ -23,7 +23,7 @@ public class StatusLote {
     @Column (name = "descricao")
     private String descricao;
 
-    @OneToMany
+    @OneToMany(mappedBy = "statusLote")
     private List<Lote> lotes;
 
     public StatusLote() {
