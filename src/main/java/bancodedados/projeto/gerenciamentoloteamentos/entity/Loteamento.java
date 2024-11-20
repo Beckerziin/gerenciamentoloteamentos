@@ -3,6 +3,7 @@ package bancodedados.projeto.gerenciamentoloteamentos.entity;
 import java.util.List;
 import java.util.UUID;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,7 +28,7 @@ public class Loteamento {
     @JoinColumn(name = "loteadora_id")
     private Loteadora loteadora;
 
-    @OneToOne(mappedBy = "loteamento")
+    @OneToOne(cascade = CascadeType.ALL,mappedBy = "loteamento")
     private Obra obra;
 
     @ManyToOne
@@ -61,9 +62,15 @@ public class Loteamento {
     public Loteamento() {
     }
 
-    public Loteamento(UUID loteamentoId, String nome, String localizacao, Float areatotal, String fotos,
-            Integer quantidadeLotes, Integer lotesDisponiveis) {
+    public Loteamento(UUID loteamentoId, Loteadora loteadora, Obra obra, StatusLoteamento statusLoteamento,
+            List<Lote> lotes, List<Documentacao> documentacoes, String nome, String localizacao, Float areatotal,
+            String fotos, Integer quantidadeLotes, Integer lotesDisponiveis) {
         this.loteamentoId = loteamentoId;
+        this.loteadora = loteadora;
+        this.obra = obra;
+        this.statusLoteamento = statusLoteamento;
+        this.lotes = lotes;
+        this.documentacoes = documentacoes;
         this.nome = nome;
         this.localizacao = localizacao;
         this.areatotal = areatotal;

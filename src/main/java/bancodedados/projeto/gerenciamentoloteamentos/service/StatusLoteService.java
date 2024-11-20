@@ -23,7 +23,8 @@ public class StatusLoteService {
 
         //DTO -> ENTITY
         var entity = new StatusLote(UUID.randomUUID(),
-            statusLoteDTO.descricao());
+            statusLoteDTO.descricao(),
+            null);
 
         var statusLoteSaved =  statusLoteRepository.save(entity);
 

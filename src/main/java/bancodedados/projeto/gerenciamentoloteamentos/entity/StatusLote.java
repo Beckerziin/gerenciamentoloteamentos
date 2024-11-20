@@ -29,9 +29,10 @@ public class StatusLote {
     public StatusLote() {
     }
 
-    public StatusLote(UUID statusLoteId, String descricao) {
+    public StatusLote(UUID statusLoteId, String descricao, List<Lote> lotes) {
         this.statusLoteId = statusLoteId;
         this.descricao = descricao;
+        this.lotes = lotes;
     }
 
     public UUID getStatusLoteId() {

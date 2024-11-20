@@ -57,11 +57,11 @@ public class Loteadora {
     @OneToMany(mappedBy = "loteadora")
     private List<LoteadoraSocio> loteadoraSocios;
 
-    public Loteadora() {
-    }
+    
 
     public Loteadora(UUID loteadoraId, String nome, String email, String senha, String cnpj, String endereco,
-            String telefone, String foto, Instant creationTimeStamp, Instant updateTimeStamp) {
+            String telefone, String foto, Instant creationTimeStamp, Instant updateTimeStamp,
+            List<Loteamento> loteamentos, List<LoteadoraSocio> loteadoraSocios) {
         this.loteadoraId = loteadoraId;
         this.nome = nome;
         this.email = email;
@@ -72,6 +72,11 @@ public class Loteadora {
         this.foto = foto;
         this.creationTimeStamp = creationTimeStamp;
         this.updateTimeStamp = updateTimeStamp;
+        this.loteamentos = loteamentos;
+        this.loteadoraSocios = loteadoraSocios;
+    }
+
+    public Loteadora() {
     }
 
     public UUID getLoteadoraId() {

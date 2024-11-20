@@ -38,15 +38,18 @@ public class Visita {
     @JoinColumn(name = "engenheiro_id")
     private Engenheiro engenheiro;
 
-    public Visita() {
-    }
-
-    public Visita(UUID visitaId, Instant data, String descricao, String fotos) {
+    public Visita(UUID visitaId, Instant data, String descricao, String fotos, Obra obra, Engenheiro engenheiro) {
         this.visitaId = visitaId;
         this.data = data;
         this.descricao = descricao;
         this.fotos = fotos;
+        this.obra = obra;
+        this.engenheiro = engenheiro;
     }
+
+    public Visita() {
+    }
+
 
     public UUID getVisitaId() {
         return visitaId;

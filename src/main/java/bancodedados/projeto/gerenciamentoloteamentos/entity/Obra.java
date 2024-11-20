@@ -4,6 +4,7 @@ import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,7 +24,7 @@ public class Obra {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID obraId;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "loteamento_id")
     private Loteamento loteamento;
 
@@ -45,8 +46,11 @@ public class Obra {
     public Obra() {
     }
 
-    public Obra(UUID obraId, Instant dataInicio, Instant dataFim, float progresso, String fotos) {
+    public Obra(UUID obraId, Loteamento loteamento, List<Visita> visitas, Instant dataInicio, Instant dataFim,
+            float progresso, String fotos) {
         this.obraId = obraId;
+        this.loteamento = loteamento;
+        this.visitas = visitas;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
         this.progresso = progresso;

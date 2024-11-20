@@ -20,9 +20,6 @@ public class Engenheiro {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID engenheiroId;
 
-    @OneToMany(mappedBy = "engenheiro")
-    private List<Visita> visitas;
-
     @Column (name = "nome")
     private String nome;
 
@@ -38,16 +35,21 @@ public class Engenheiro {
     @Column (name = "telefone")
     private String telefone;
 
-    public Engenheiro() {
-    }
+    @OneToMany(mappedBy = "engenheiro")
+    private List<Visita> visitas;
 
-    public Engenheiro(UUID engenheiroId, String nome, String email, String cpf, String crea, String telefone) {
+    public Engenheiro(UUID engenheiroId, List<Visita> visitas, String nome, String email, String cpf, String crea,
+            String telefone) {
         this.engenheiroId = engenheiroId;
+        this.visitas = visitas;
         this.nome = nome;
         this.email = email;
         this.cpf = cpf;
         this.crea = crea;
         this.telefone = telefone;
+    }
+
+    public Engenheiro() {
     }
 
     public UUID getEngenheiroId() {

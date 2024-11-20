@@ -37,15 +37,17 @@ public class Documentacao {
     @Column (name = "arquivo")
     private String arquivo;
 
-    public Documentacao() {
-    }
-
-    public Documentacao(UUID documentacaoId, String tipo, Instant dataEmissao, Instant dataVencimento, String arquivo) {
+    public Documentacao(UUID documentacaoId, Loteamento loteamento, String tipo, Instant dataEmissao,
+            Instant dataVencimento, String arquivo) {
         this.documentacaoId = documentacaoId;
+        this.loteamento = loteamento;
         this.tipo = tipo;
         this.dataEmissao = dataEmissao;
         this.dataVencimento = dataVencimento;
         this.arquivo = arquivo;
+    }
+
+    public Documentacao() {
     }
 
     public UUID getDocumentacaoId() {

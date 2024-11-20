@@ -28,8 +28,9 @@ public class StatusLoteamento {
     public StatusLoteamento() {
     }
 
-    public StatusLoteamento(UUID statusLotementoId, String descricao) {
+    public StatusLoteamento(UUID statusLotementoId, List<Loteamento> lotementos, String descricao) {
         this.statusLotementoId = statusLotementoId;
+        this.lotementos = lotementos;
         this.descricao = descricao;
     }
 

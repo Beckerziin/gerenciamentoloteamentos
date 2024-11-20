@@ -35,6 +35,8 @@ public class LoteadoraService {
             createLoteadoraDTO.telefone(),
             createLoteadoraDTO.foto(),
             Instant.now(),
+            null,
+            null,
             null);
 
         var loteadoraSaved =  loteadoraRepository.save(entity);

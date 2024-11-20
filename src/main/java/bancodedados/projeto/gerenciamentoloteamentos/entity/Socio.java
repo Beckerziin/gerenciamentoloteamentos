@@ -41,13 +41,15 @@ public class Socio {
     public Socio() {
     }
 
-    public Socio(UUID socioId, String nome, String senha, String email, String cpf, String telefone) {
+    public Socio(UUID socioId, String nome, String senha, String email, String cpf, String telefone,
+            List<LoteadoraSocio> loteadoraSocios) {
         this.socioId = socioId;
         this.nome = nome;
         this.senha = senha;
         this.email = email;
         this.cpf = cpf;
         this.telefone = telefone;
+        this.loteadoraSocios = loteadoraSocios;
     }
 
     public UUID getSocioId() {

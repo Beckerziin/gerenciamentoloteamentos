@@ -23,7 +23,7 @@ public class StatusLoteamentoService {
 
         //DTO -> ENTITY
         var entity = new StatusLoteamento(UUID.randomUUID(),
-            statusLoteamentoDTO.descricao());
+            null, statusLoteamentoDTO.descricao());
 
         var statusLoteamentoSaved =  statusLoteamentoRepository.save(entity);
 

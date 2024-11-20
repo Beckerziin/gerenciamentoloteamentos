@@ -29,7 +29,7 @@ public class Lote {
     private StatusLote statusLote;
 
     @Column (name = "area")
-    private float Area;
+    private float area;
 
     @Column (name = "valor")
     private float valor;
@@ -40,15 +40,18 @@ public class Lote {
     @Column (name = "descricao")
     private String descricao;
 
-    public Lote() {
-    }
-
-    public Lote(UUID loteId, float area, float valor, String numero, String descricao) {
+    public Lote(UUID loteId, Loteamento loteamento, StatusLote statusLote, float area, float valor, String numero,
+            String descricao) {
         this.loteId = loteId;
-        Area = area;
+        this.loteamento = loteamento;
+        this.statusLote = statusLote;
+        this.area = area;
         this.valor = valor;
         this.numero = numero;
         this.descricao = descricao;
+    }
+
+    public Lote() {
     }
 
     public UUID getLoteId() {
@@ -60,11 +63,11 @@ public class Lote {
     }
 
     public float getArea() {
-        return Area;
+        return area;
     }
 
     public void setArea(float area) {
-        Area = area;
+        this.area = area;
     }
 
     public float getValor() {

@@ -30,7 +30,8 @@ public class SocioService {
             createSocioDTO.senha(),
             createSocioDTO.email(),
             createSocioDTO.cpf(),
-            createSocioDTO.telefone());
+            createSocioDTO.telefone(),
+            null);
 
         var socioSaved =  socioRepository.save(entity);
 
