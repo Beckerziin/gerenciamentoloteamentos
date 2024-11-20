@@ -97,4 +97,12 @@ public class Engenheiro {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
+    public List<Visita> getVisitas() {
+        return visitas;
+    }
+
+    public void setVisitas(List<Visita> visitas) {
+        this.visitas = visitas;
+    }
 }

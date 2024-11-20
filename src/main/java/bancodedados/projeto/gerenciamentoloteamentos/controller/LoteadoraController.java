@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import bancodedados.projeto.gerenciamentoloteamentos.controller.DTO.CreateLoteadoraDTO;
+import bancodedados.projeto.gerenciamentoloteamentos.controller.DTO.UpdateLoteadoraDTO;
 import bancodedados.projeto.gerenciamentoloteamentos.entity.Loteadora;
 import bancodedados.projeto.gerenciamentoloteamentos.service.LoteadoraService;
 import org.springframework.web.bind.annotation.PutMapping;

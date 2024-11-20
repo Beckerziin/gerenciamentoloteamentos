@@ -7,8 +7,8 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
-import bancodedados.projeto.gerenciamentoloteamentos.controller.CreateLoteadoraDTO;
-import bancodedados.projeto.gerenciamentoloteamentos.controller.UpdateLoteadoraDTO;
+import bancodedados.projeto.gerenciamentoloteamentos.controller.DTO.CreateLoteadoraDTO;
+import bancodedados.projeto.gerenciamentoloteamentos.controller.DTO.UpdateLoteadoraDTO;
 import bancodedados.projeto.gerenciamentoloteamentos.entity.Loteadora;
 import bancodedados.projeto.gerenciamentoloteamentos.repository.LoteadoraRepository;
 

@@ -88,4 +88,12 @@ public class Visita {
         this.obra = obra;
     }
 
+    public Engenheiro getEngenheiro() {
+        return engenheiro;
+    }
+
+    public void setEngenheiro(Engenheiro engenheiro) {
+        this.engenheiro = engenheiro;
+    }
+
 }

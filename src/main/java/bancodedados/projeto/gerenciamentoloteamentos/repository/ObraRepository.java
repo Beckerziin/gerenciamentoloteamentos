@@ -5,9 +5,9 @@ import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import bancodedados.projeto.gerenciamentoloteamentos.entity.Loteadora;
+import bancodedados.projeto.gerenciamentoloteamentos.entity.Obra;
 
 @Repository
-public interface LoteadoraRepository extends JpaRepository<Loteadora, UUID>{
-    
+public interface ObraRepository extends JpaRepository<Obra,UUID>{
+
 }

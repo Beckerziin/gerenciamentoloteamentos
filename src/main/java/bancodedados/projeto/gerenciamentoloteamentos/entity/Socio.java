@@ -97,4 +97,12 @@ public class Socio {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
+    public List<LoteadoraSocio> getLoteadoraSocios() {
+        return loteadoraSocios;
+    }
+
+    public void setLoteadoraSocios(List<LoteadoraSocio> loteadoraSocios) {
+        this.loteadoraSocios = loteadoraSocios;
+    }
 }

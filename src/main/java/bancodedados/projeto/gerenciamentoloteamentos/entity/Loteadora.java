@@ -162,4 +162,12 @@ public class Loteadora {
         this.loteamentos = loteamentos;
     }
 
+    public List<LoteadoraSocio> getLoteadoraSocios() {
+        return loteadoraSocios;
+    }
+
+    public void setLoteadoraSocios(List<LoteadoraSocio> loteadoraSocios) {
+        this.loteadoraSocios = loteadoraSocios;
+    }
+
 }

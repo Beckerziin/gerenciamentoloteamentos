@@ -159,5 +159,13 @@ public class Loteamento {
     public void setLotes(List<Lote> lotes) {
         this.lotes = lotes;
     }
+
+    public List<Documentacao> getDocumentacoes() {
+        return documentacoes;
+    }
+
+    public void setDocumentacoes(List<Documentacao> documentacoes) {
+        this.documentacoes = documentacoes;
+    }
     
 }
