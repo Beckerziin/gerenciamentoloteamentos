@@ -24,7 +24,7 @@ public class EngenheiroService {
 
         //DTO -> ENTITY
         var entity = new Engenheiro(UUID.randomUUID(),
-        createEngenheiroDTO.nome(),
+        null, createEngenheiroDTO.nome(),
         createEngenheiroDTO.email(),
         createEngenheiroDTO.telefone(),
         createEngenheiroDTO.cpf(),
