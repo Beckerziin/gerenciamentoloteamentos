@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import bancodedados.projeto.gerenciamentoloteamentos.entity.StatusLoteamento;
 
 @Repository
-public interface StatuLoteamentoRepository extends JpaRepository<StatusLoteamento,UUID>{
+public interface StatusLoteamentoRepository extends JpaRepository<StatusLoteamento,UUID>{
 
 }
